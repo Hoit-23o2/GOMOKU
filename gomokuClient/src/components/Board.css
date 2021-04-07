@@ -1,0 +1,30 @@
+.piece-black{
+    background-color: var(--black-piece);
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+
+.piece-white{
+    background-color: var(--white-piece);
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+
+.square{
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+    width: 25px;
+    margin: 5px;
+    background-color: var(--sqaure-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-row{
+    display: flex;
+    flex-direction: row;
+}

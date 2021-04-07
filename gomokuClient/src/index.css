@@ -1,0 +1,27 @@
+:root {
+    --primary-color: #E6E6E6;
+    --secondary-color: #333333;
+    --secondary-light-color:#7F7F7F;
+    --font-color: #919191;
+    --font-light-color: #FFFFFF;
+    --orange-color:#F8B827;
+    --sqaure-color:#404040;
+    --white-piece:#FFFFFF;
+    --black-piece:#7F7F7F;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-color);
+}
+
+.test{
+    background-color: aqua;
+}

@@ -1,0 +1,38 @@
+.game-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.game-player-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;    
+    flex-direction: row;
+    margin:10px 0px;
+}
+
+.player-info-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-player-avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-player-name {
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.game-tips {
+    font-size: large;
+    font-weight: bold;
+}

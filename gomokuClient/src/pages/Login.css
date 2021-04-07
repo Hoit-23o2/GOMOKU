@@ -1,0 +1,31 @@
+.form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-label {
+    color: #fff;
+    font-weight: bold;
+}
+
+.form-text {
+    color: var(--font-color)
+}
+
+.form-control:focus {
+    border-color: var(--orange-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 196, 0, 0.25);
+}
+
+.form-check-input{
+    background-color: black;
+}
+
+.form-btn-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+

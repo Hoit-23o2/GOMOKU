@@ -1,0 +1,39 @@
+.me-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.me-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}  
+
+.me-avatar {
+    border-radius: 1em;
+    height: 2em;
+    width: 2em;
+    border: 1px solid ;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.me-username {
+    font-size: 1em;
+    margin: 10px 0px;
+    font-weight: bold;
+
+}
+
+.me-game-record-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: small;
+}
