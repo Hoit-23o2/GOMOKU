@@ -106,7 +106,7 @@
 
 ```json
  {
- 		Type:2
+ 	Type:2
         Opponentname: "Zhangsan"
         Youfirst:  true or false
  }
@@ -140,7 +140,7 @@
 
 ```json
 {
-		Type: 3
+	Type: 3
         X: x
         Y: y
 }
@@ -158,7 +158,7 @@
 **To another player**
 ```json
 {
-		Type: 3
+	Type: 3
         X: x
         Y: y
 }
