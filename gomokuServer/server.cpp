@@ -2,9 +2,10 @@
 #include "rapidjson/document.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/writer.h"
-
+extern LWS_VISIBLE LWS_EXTERN struct lws_vhost *
+lws_get_vhost(struct lws *wsi);
 //当浏览器出现连接重置时，可能是网站根目录出错或http响应格式出错或者访问的文件中内容完全为空
-const char *doc_root = "/home/huhu/TinyWebServer/WebSocketServer/root/";
+const char *doc_root = "/GOMOKU/gomokuServer/root/";
 using namespace std;
 using namespace rapidjson;
 //创建html文件的路径
@@ -177,68 +178,68 @@ static int callback_http(struct lws *wsi, enum lws_callback_reasons reason, void
                 if (old_case == REGISTER_REQ)
                 {
                     printf("fff33\n");
-                    MYSQL* mysql;
-                    connectionRAII mysqlcon(&mysql, connPool);
-                    //如果是注册，先检测数据库中是否有重名的
-                    //没有重名的，进行增加数据
-                    char *sql_insert = (char *)malloc(sizeof(char) * 200);
-                    strcpy(sql_insert, "INSERT INTO user(username, passwd) VALUES(");
-                    strcat(sql_insert, "'");
-                    strcat(sql_insert, name.c_str());
-                    strcat(sql_insert, "', '");
-                    strcat(sql_insert, password.c_str());
-                    strcat(sql_insert, "')");
+                    // MYSQL* mysql;
+                    // connectionRAII mysqlcon(&mysql, connPool);
+                    // //如果是注册，先检测数据库中是否有重名的
+                    // //没有重名的，进行增加数据
+                    // char *sql_insert = (char *)malloc(sizeof(char) * 200);
+                    // strcpy(sql_insert, "INSERT INTO user(username, passwd) VALUES(");
+                    // strcat(sql_insert, "'");
+                    // strcat(sql_insert, name.c_str());
+                    // strcat(sql_insert, "', '");
+                    // strcat(sql_insert, password.c_str());
+                    // strcat(sql_insert, "')");
 
-                    if (users.find(name) == users.end())
-                    {
+                    // if (users.find(name) == users.end())
+                    // {
 
-                        m_lock.lock();
-                        int res = mysql_query(mysql, sql_insert);
-                        users.insert(pair<string, string>(name, password));
-                        m_lock.unlock();
+                    //     m_lock.lock();
+                    //     int res = mysql_query(mysql, sql_insert);
+                    //     users.insert(pair<string, string>(name, password));
+                    //     m_lock.unlock();
 
-                        if (!res)
-                            lws_serve_http_file(wsi, get_html_file_path("log.html"), "text/html", NULL, 0);
-                        else
-                            lws_serve_http_file(wsi, get_html_file_path("registerError.html"), "text/html", NULL, 0);
-                    }
-                    else
-                        lws_serve_http_file(wsi, get_html_file_path("registerError.html"), "text/html", NULL, 0);
+                    //     if (!res)
+                    //         lws_serve_http_file(wsi, get_html_file_path("log.html"), "text/html", NULL, 0);
+                    //     else
+                    //         lws_serve_http_file(wsi, get_html_file_path("registerError.html"), "text/html", NULL, 0);
+                    // }
+                    // else
+                    //     lws_serve_http_file(wsi, get_html_file_path("registerError.html"), "text/html", NULL, 0);
                     
-                    free(sql_insert);
+                    // free(sql_insert);
                 }
                 //如果是登录，直接判断
                 //若浏览器端输入的用户名和密码在表中可以查找到，返回1，否则返回0
                 else if (old_case == LOGIN_REQ)
                 {
-                    for(auto pa : users){
-                        cout << pa.first << ' ' << pa.second << endl;
-                    }
-                    if (users.find(name) != users.end() && users[name] == password){
-                        printf("fff3\n");
-                        // MYSQL* mysql;
-                        // connectionRAII mysqlcon(&mysql, connPool);
-                        // string sql_query = "SELECT id FROM user WHERE username = " + name;
+                    // for(auto pa : users){
+                    //     cout << pa.first << ' ' << pa.second << endl;
+                    // }
+                    // if (users.find(name) != users.end() && users[name] == password){
+                    //     printf("fff3\n");
+                    //     // MYSQL* mysql;
+                    //     // connectionRAII mysqlcon(&mysql, connPool);
+                    //     // string sql_query = "SELECT id FROM user WHERE username = " + name;
 
-                        // //进行数据库查询用户的id
-                        // int res = mysql_query(mysql, sql_query.c_str());
-                        // MYSQL_RES *result = mysql_store_result(mysql);
+                    //     // //进行数据库查询用户的id
+                    //     // int res = mysql_query(mysql, sql_query.c_str());
+                    //     // MYSQL_RES *result = mysql_store_result(mysql);
 
-                        // if(MYSQL_ROW row = mysql_fetch_row(result)){
-                        //     cout << row[0] <<endl;
-                        //     if(pss)
-                        //         pss->user_id = atoi(row[0]);
-                        //     else
-                        //         cout << "fuck" << endl;
-                        // }
+                    //     // if(MYSQL_ROW row = mysql_fetch_row(result)){
+                    //     //     cout << row[0] <<endl;
+                    //     //     if(pss)
+                    //     //         pss->user_id = atoi(row[0]);
+                    //     //     else
+                    //     //         cout << "fuck" << endl;
+                    //     // }
 
-                        // users.insert(pair<string, string>(name, password));
-                        // m_lock.unlock();
+                    //     // users.insert(pair<string, string>(name, password));
+                    //     // m_lock.unlock();
 
-                        lws_serve_http_file(wsi, get_html_file_path("welcome.html"), "text/html", NULL, 0);}
-                    else{
-                        printf("fff2\n");
-                        lws_serve_http_file(wsi, get_html_file_path("logError.html"), "text/html", NULL, 0);}
+                    //     lws_serve_http_file(wsi, get_html_file_path("welcome.html"), "text/html", NULL, 0);}
+                    // else{
+                    //     printf("fff2\n");
+                    //     lws_serve_http_file(wsi, get_html_file_path("logError.html"), "text/html", NULL, 0);}
                 }else{
                     printf("fff333\n");
                     cout << old_case << " " << LOGIN_REQ << endl;
@@ -270,7 +271,7 @@ static int callback_example_server(struct lws *wsi, enum lws_callback_reasons re
     struct user_meta **ppss, *pss = (struct user_meta *)user;
 
     /*由vhost与protocol还原lws_protocol_vh_priv_zalloc申请的结构*/
-    struct server_meta *vhd = (struct server_meta *)lws_protocol_vh_priv_get(lws_vhost_get(wsi), lws_get_protocol(wsi));
+    struct server_meta *vhd = (struct server_meta *)lws_protocol_vh_priv_get(lws_get_vhost(wsi), lws_get_protocol(wsi));
     int m;
     switch (reason)
     {
@@ -279,9 +280,9 @@ static int callback_example_server(struct lws *wsi, enum lws_callback_reasons re
     {
         cout << "LWS_CALLBACK_PROTOCOL_INIT" << endl;
         /*申请内存*/
-        vhd = (struct server_meta *)lws_protocol_vh_priv_zalloc(lws_vhost_get(wsi), lws_get_protocol(wsi), sizeof(struct server_meta));
+        vhd = (struct server_meta *)lws_protocol_vh_priv_zalloc(lws_get_vhost(wsi), lws_get_protocol(wsi), sizeof(struct server_meta));
         vhd->protocol = lws_get_protocol(wsi);
-        vhd->vhost = lws_vhost_get(wsi);
+        vhd->vhost = lws_get_vhost(wsi);
     }
     break;
 
@@ -369,7 +370,7 @@ static int callback_example_server(struct lws *wsi, enum lws_callback_reasons re
     /*客户端可写*/
     case LWS_CALLBACK_SERVER_WRITEABLE:
     {
-        cout << "LWS_CALLBACK_SERVER_WRITEABLE" << vhd->amsg.payload << endl;
+        cout << "LWS_CALLBACK_SERVER_WRITEABLE" << endl;
         if (!pss->msg_to_send)
             break;
         if(pss) cout << "get" << endl;
@@ -394,7 +395,11 @@ static int callback_example_server(struct lws *wsi, enum lws_callback_reasons re
         cout << "LWS_CALLBACK_RECEIVE" << endl;
 
         if(len == 0) return -1;
+        char* rec_buf = (char*)in;
+        rec_buf[len] = '\0';
+
         if(in) cout << (char*)in << endl;
+
         cout << "xxx" << endl;
         Document document;
         document.Parse((char*)in);
@@ -470,6 +475,8 @@ static int callback_example_server(struct lws *wsi, enum lws_callback_reasons re
                     send_document_to_player(new_doc, (long)pss);
 
                     new_doc.RemoveMember("youfirst");
+                    new_doc.RemoveMember("opponentname");
+                    new_doc.AddMember("opponentname", _temp_string.SetString(pss->user_name, new_doc.GetAllocator()), new_doc.GetAllocator());
                     new_doc.AddMember("youfirst", false, new_doc.GetAllocator());
                     send_document_to_opponent(new_doc, (long)pss);
                 }
@@ -541,6 +548,8 @@ static int callback_example_server(struct lws *wsi, enum lws_callback_reasons re
                 new_doc.AddMember("type", (int)TYPE_GAME_START, new_doc.GetAllocator());
                 user_meta* opponent = (user_meta*)get_oppenent_id((long)pss);
 
+                if(!opponent || !pss) return CHESS_ERROR;
+
                 Value _temp_string;
                 new_doc.AddMember("opponentname", _temp_string.SetString(opponent->user_name, new_doc.GetAllocator()), new_doc.GetAllocator());
 
@@ -548,6 +557,8 @@ static int callback_example_server(struct lws *wsi, enum lws_callback_reasons re
                 send_document_to_player(new_doc, (long)pss);
 
                 new_doc.RemoveMember("youfirst");
+                new_doc.RemoveMember("opponentname");
+                new_doc.AddMember("opponentname", _temp_string.SetString(pss->user_name, new_doc.GetAllocator()), new_doc.GetAllocator());
                 new_doc.AddMember("youfirst", false, new_doc.GetAllocator());
                 send_document_to_opponent(new_doc, (long)pss);
             }break;
@@ -613,15 +624,15 @@ int main_server()
 {
 
     //创建数据库连接池
-    connPool = connection_pool::GetInstance();
+    //connPool = connection_pool::GetInstance();
 
-    connPool->init("localhost", "root", "root", "chessdb", 3306, 8);
+    //connPool->init("localhost", "root", "root", "chessdb", 3306, 8);
 
-    initmysql_result(connPool);
-    cout << "users init:" << endl;
-    for(auto pa : users){
-        cout << pa.first << ' ' << pa.second << endl;
-    }
+    //initmysql_result(connPool);
+    //cout << "users init:" << endl;
+    // for(auto pa : users){
+    //     cout << pa.first << ' ' << pa.second << endl;
+    // }
     struct lws_context_creation_info info;
     memset(&info, 0, sizeof(info));
 

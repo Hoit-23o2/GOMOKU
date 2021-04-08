@@ -36,7 +36,7 @@ class Login extends React.Component {
     mySubmitHandler = (event) => {
         console.log(event);
         event.preventDefault();
-        var isRegister = event.nativeEvent.submitter.className === "btn btn-outline-warning" ? true : false;
+        //var isRegister = event.nativeEvent.submitter.className === "btn btn-outline-warning" ? true : false;
         var username = this.state.username;
         var password = this.state.password;
         var remember = this.state.remember;
@@ -54,12 +54,12 @@ class Login extends React.Component {
             alert('信息不完整');
             return;
         }
-        if(isRegister){
-            // 处理注册
-        }
-        else {
-            // 处理登录
-        }
+        // if(isRegister){
+        //     // 处理注册
+        // }
+        // else {
+        //     // 处理登录
+        // }
 
         this.props.history.replace({pathname: '/'});
     }
