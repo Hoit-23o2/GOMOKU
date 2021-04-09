@@ -55,8 +55,27 @@ function RoomInfoModal(props) {
                         <Button style={{fontWeight: `bold`, width: `100%`}} 
                                 variant="warning" 
                                 onClick={() => {
-                                    console.log(roomTitle);
+                                console.log(roomTitle);
+                                if(LocalIO.GetItem(LocalIO.KEY_USERNAME) == null 
+                                || LocalIO.GetItem(LocalIO.KEY_PASSWORD) == null){
+                                    alert("请先登录");
+                                    return;
+                                }
+                                
                                 var username = LocalIO.GetItem(LocalIO.KEY_USERNAME);
+
+                                if(roomTitle === "" 
+                                || roomTitle.nativeEvent.data.length === 0){
+                                    alert("请填写房间标题");
+                                    return;
+                                }
+
+                                if(roomDesc === "" 
+                                || roomDesc.nativeEvent.data.length === 0){
+                                    alert("请填写房间描述");
+                                    return;
+                                }
+
                                 var api = API.APICreate(API.TYPE_CREATE_ROOM, {
                                     title: roomTitle.nativeEvent.data,
                                     desc: roomDesc.nativeEvent.data,

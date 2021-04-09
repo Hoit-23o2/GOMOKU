@@ -18,19 +18,19 @@
 
 本项目是一个联网五子棋，有单人游戏和多人游戏两种模式，采用B/S架构，对于PC端和移动端都能完美适配。下面是本项目运行截图：
 
-![image-20210409115328273](README.assets/主页.png)
+![image-20210409115328273](./images/主页.png)
 
-![image-20210409115440755](README.assets/单人游戏.png)
+![image-20210409115440755](./images/单人游戏.png)
 
-![image-20210409115751870](README.assets/房间列表.png)
+![image-20210409115751870](./images/房间列表.png)
 
-![image-20210409115957226](README.assets/多人游戏.png)
+![image-20210409115957226](./images/多人游戏.png)
 
-![image-20210409120059896](README.assets/模拟手机端适配.png)
+![image-20210409120059896](./images/模拟手机端适配.png)
 
 ## 2. 系统结构
 
-![image-20210409115003976](README.assets/架构.png)
+![image-20210409115003976](./images/架构.png)
 
 ## 3. 客户端与服务器通信方式
 

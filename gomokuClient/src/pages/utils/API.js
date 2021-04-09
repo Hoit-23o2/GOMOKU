@@ -155,7 +155,7 @@ function ParseMsg(msg){
 function SendMsg(ws, message, callback) {
     console.log(ws);
     WaitForConnection(ws, function () {
-        ws.send(message);
+        ws?.send(message);
         if (callback) {
           callback();
         }

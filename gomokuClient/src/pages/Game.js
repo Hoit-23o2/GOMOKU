@@ -113,7 +113,7 @@ class Game extends Component {
             this.opponentAvatar = <FaIcons.FaUserAlt/>;
             /* 检查是否登录 */
             if(LocalIO.GetItem(LocalIO.KEY_USERNAME) == null 
-            || LocalIO.GetItem(LocalIO.KEY_USERNAME) == null){
+            || LocalIO.GetItem(LocalIO.KEY_PASSWORD) == null){
                 alert("请先登录");
                 this.props.history.goBack();
             }
@@ -248,7 +248,7 @@ class Game extends Component {
      */
     escapeGame(ws) {
         console.log(ws);
-        ws.close();
+        ws?.close();
     }
 
     handleClick(i, clickFrom){
