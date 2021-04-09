@@ -1,4 +1,4 @@
-const SERVER_DOMAIN = "172.20.10.10";
+const SERVER_DOMAIN = "121.36.74.1";
 const SERVER_PORT = "8000"
 
 /* 

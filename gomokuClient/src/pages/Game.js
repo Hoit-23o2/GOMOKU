@@ -205,6 +205,7 @@ class Game extends Component {
                 this.opponentName = msgInfo.opponentname;
                 this.whosFirst = msgInfo.youfirst === true ? ME : OPPONENT;
                 this.isGameStart = true;
+                console.log(this.opponentName);
                 this.gameReset();
             }
             default:
