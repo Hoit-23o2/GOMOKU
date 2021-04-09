@@ -4,6 +4,12 @@
 
 ​	**A type of GoMoKu(Connect-5)** 
 
+
+
+#### Version 2.0
+
+#### Time: 2021.4.8
+
  
 
 ### API List
@@ -26,9 +32,9 @@
 
 ### API Description 
 
-#### 		Create Room
+#### 			Create Room
 
-##### 				Request(json)
+##### 						Request(json)
 
 ```json
 {
@@ -48,7 +54,7 @@
 
 
 
-##### 				Response(json)
+##### 						Response(json)
 ```json
 {
         Type: 5
@@ -69,9 +75,9 @@
 
 
 
-#### 		Join Room
+#### 			Join Room
 
-##### 				Request(json)
+##### 						Request(json)
 
 ```json
  {
@@ -87,8 +93,8 @@
 | RoomId   | 房间ID  | 1           |
 | Username | 用户名  | ZTl         |
 
-##### 				Response
-**if room is full**
+##### 						Response
+​		**if room is full**
 ```json
 {
         Type: 2
@@ -100,13 +106,13 @@
 
 
 
-#### 	Start Game
+#### 		Start Game
 
-##### 		Request(json)
+##### 				Request(json)
 
 ```json
  {
- 	Type:2
+ 		Type:2
         Opponentname: "Zhangsan"
         Youfirst:  true or false
  }
@@ -115,18 +121,18 @@
 | 变量名       | 描述         | 示例        |
 | ------------ | ------------ | ----------- |
 | Type         | 消息类型      | 2为开始游戏 |
-| Opponentname | 队友名称     | Zhangsan    |
+| Opponentname | 对手名称   | Zhangsan    |
 | Youfirst     | 房主先手标志 | true        |
 
 
 
-##### 				Response
+##### 						Response
 ```json
  {
  	Type:2
  }
 ```
-**To another player**
+​		**To another player**
 | 变量名       | 描述         | 示例        |
 | ------------ | ------------ | ----------- |
 | Type         | 消息类型      | 2为开始游戏 |
@@ -134,13 +140,13 @@
 
 
 
-#### 	Move Chess
+#### 		Move Chess
 
-##### 		Request(json)
+##### 				Request(json)
 
 ```json
 {
-	Type: 3
+		Type: 3
         X: x
         Y: y
 }
@@ -154,11 +160,11 @@
 
 
 
-##### 		Response(json)
-**To another player**
+##### 				Response(json)
+​		**To another player**
 ```json
 {
-	Type: 3
+		Type: 3
         X: x
         Y: y
 }
@@ -171,9 +177,9 @@
 
 
 
-#### 	Escape
+#### 		Escape
 
-##### 		Request(json)
+##### 				Request(json)
 
 ```json
 {
@@ -186,8 +192,8 @@
 | Type   | 消息类型 | 4为退出游戏 |
 
 
-##### 		Response(json)
-**To another player**
+##### 				Response(json)
+​		**To another player**
 ```json
 {
         Type: 4
@@ -200,9 +206,9 @@
 
 
 
-#### 		Type Room
+#### 			Type Room
 
-##### 				Request(json)
+##### 						Request(json)
 ```json
 {
         Type: 5
@@ -212,7 +218,7 @@
 | ------ | ------- | ----------- |
 | Type   | 消息类型 | 5为打印房间列表 |
 
-##### 		Response
+##### 				Response
 ```json
 {
         Type: 5
@@ -236,9 +242,9 @@
 
 
 
-#### 	Reset Game
+#### 		Reset Game
 
-##### 		Request(json)
+##### 				Request(json)
 
 ```json
 {
@@ -251,8 +257,8 @@
 | Type   | 消息类型 | 6为重启游戏 |
 
 
-##### 		Response
-**if room is full**
+##### 				Response
+​		**if room is full**
 ```json
  {
  	Type:2
