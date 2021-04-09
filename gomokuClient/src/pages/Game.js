@@ -29,9 +29,6 @@ const OPPONENT = '对手';
 const GAME_MODE_SINGLE = "single";
 const GAME_MODE_MULTI = "multi"; 
 
-window.onpagehide = (e) => {
-    console.log(e);
-}
 
 function DevideIndex(index, rowCount) {
     return [Math.trunc(index /rowCount), index % rowCount]; 
